@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>俳句生成機 -β版-</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin: 20px 0 10px;
+      text-align: center;
+    }
+    .container {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin: 50px auto;
+      max-width: 600px;
+      padding: 20px;
+    }
+    button {
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      padding: 10px 20px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #3e8e41;
+    }
+    p {
+      color: #333;
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 20px 0;
+      text-align: justify;
+    }
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>俳句生成機 -β版-</h1><br>
+    <p id="output"></p>
+    
+    <button onclick="generate()">生成</button>
+
+    <button onclick="generateMultiple()"> <input type="number" id="numHaiku" value="100" style="width:37px;">句生成</button>
+  </div>
+
+  <!-- コピー用 -->
+
+  <script>
+  
+    var group1 = ["古池や", "空蝉や", "閑かさや" , "鎌倉の", "夏草や", "たんぽぽや" , "小春日や" , "名月や" , "ラララララ" , "秋深き" , "うんこする" , "これがまあ" , "五月雨を" , "古池を" , "行く春や" , "面白し" , "馬糞の"];
+
+    var group2 = ["兵どもが", "緑走れり", "秋の風鈴", "夢見てみよう" ,  "さびしさに堪へ", "われ生きている" , "ぽぽのあたりが" , "海に夕日を" , "石をかみいる" , "終の住処か" , "曲がりくねって" , "池をめぐりて" , "兵どもが" , "ラララララララ" , "めちゃくちゃすごい"]; 
+
+    var group3 = ["夏休", "北を見る", "夕紅葉", "大晦日", "火事ですよ" , "あたたかさ" , "山路かな" , "吹き落とす" , "落ちにけり" , "牧の木々" , "法隆寺" , "ばったかな" , "ラララララ" , "秋の暮" , "すげえなあ" , "うんこする"];
+
+    function generate() {
+      var output = document.getElementById("output");
+      var sentence = group1[Math.floor(Math.random() * group1.length)] + 
+          " " + group2[Math.floor(Math.random() * group2.length)] + 
+          " " +  group3[Math.floor(Math.random() * group3.length)];
+      output.innerHTML += sentence + "<br>" +  "<br>";
+    }
+
+    function generateMultiple() {
+      var output = document.getElementById("output");
+      var numHaiku = document.getElementById("numHaiku").value;
+      for (var i = 0; i < numHaiku; i++) {
+        var sentence = group1[Math.floor(Math.random() * group1.length)] + 
+            " " + group2[Math.floor(Math.random() * group2.length)] + 
+            " " +  group3[Math.floor(Math.random() * group3.length)];
+        output.innerHTML += sentence + "<br>" +  "<br>";
+      }
+    }
+  </script>
+</body>
+</html>
